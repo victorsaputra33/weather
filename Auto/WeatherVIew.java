@@ -1,3 +1,5 @@
+package Auto;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +28,7 @@ public class WeatherVIew extends JFrame{
 	
    	JFrame frame2 = new JFrame();
    		  frame2.setTitle("WeatherProgram");
-   		 JLabel judul = new JLabel("Mode");
+   		  JLabel judul = new JLabel("Mode");
    		  JLabel judul2 = new JLabel("Blind");
    		  JLabel judultext = new JLabel("");
    		  JLabel judultext2 = new JLabel("");

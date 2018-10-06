@@ -80,17 +80,33 @@ public class WeatherData implements Subject{
 		  this.pressure = pressure;
 		 }
 		
-		 if(currentTime>=0 && currentTime<1800) {
-			 if(currentWind>=0 && currentWind<15) {
+		 if(atMorning(currentTime)) {
+			 if(isNormalWind(currentWind)) {
 				this.setWindow = "Open";
-			 } else if(currentWind>=15 && currentWind<=20) {
+			 } else if(isStrongWind(currentWind)) {
 				this.setWindow = "Close";
 			 }
-		 } else if(currentTime>=1800 && currentTime<=2400) {
+		 } else if(atNight(currentTime)) {
 			 this.setWindow = "Close";
 		 }
 		 
 		
 		measurementsChanged();
+	}
+
+	private boolean isStrongWind(float currentWind) {
+		return currentWind>=15 && currentWind<=20;
+	}
+
+	private boolean isNormalWind(float currentWind) {
+		return currentWind>=0 && currentWind<15;
+	}
+
+	private boolean atNight(float currentTime) {
+		return currentTime>=1800 && currentTime<=2400;
+	}
+
+	private boolean atMorning(float currentTime) {
+		return currentTime>=0 && currentTime<1800;
 	}
 }
