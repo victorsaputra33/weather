@@ -1,4 +1,4 @@
-package Auto;
+
 
 import java.util.ArrayList;
 public class WeatherData implements Subject{
@@ -37,7 +37,7 @@ public class WeatherData implements Subject{
 		return temperature;
 
 	}
-	public float getHumidity(){
+	public  float getHumidity(){
 		return humidity;
 
 	}
