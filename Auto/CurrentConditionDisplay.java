@@ -1,15 +1,12 @@
-import java.awt.*;
+package Auto;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.*;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CurrentConditionDisplay extends JFrame implements Observer, DisplayElement  {
 	

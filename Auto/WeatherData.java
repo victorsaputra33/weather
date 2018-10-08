@@ -1,5 +1,4 @@
-
-
+package Auto;
 import java.util.ArrayList;
 public class WeatherData implements Subject{
 
