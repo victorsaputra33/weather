@@ -1,4 +1,4 @@
-package Auto;
+
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -7,13 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 import javax.swing.JTextArea;
 
 public class CurrentConditionDisplay extends JFrame implements Observer, DisplayElement {
 	
 	//Initial JFrame size
-	private static final int FRAME_WIDTH = 600;
-  	private static final int FRAME_HEIGHT = 400;
+	private static final int FRAME_WIDTH = 1000;
+  	private static final int FRAME_HEIGHT = 1000;
   	JFrame frame2 = new JFrame();
 
 	//Initial attribute
@@ -50,8 +52,17 @@ public class CurrentConditionDisplay extends JFrame implements Observer, Display
 	     JLabel judul2 = new JLabel("Blind");
 	  	 JLabel judultext = new JLabel("");
 	  	 JLabel judultext2 = new JLabel("");
+	  	 judultext2.setText(setWindow);
 	     JButton amount1 = new JButton("ON");
-	     JTextArea comments = new JTextArea("HELLO");
+	     
+	     JTextArea textArea = new JTextArea(50,50);
+	     textArea.setSize(400,400);
+	     //comments.setText("Current Condition:"+temperature+"C degrees and"+"Normal Temperature"+humidity+" C degrees and we need: "+pressure+" to be a normal temperature");
+	         textArea.setLineWrap(false);
+    		textArea.setWrapStyleWord(true);
+    		 textArea.append("\n");
+    		add(textArea);
+	     textArea.setText(buildText());
 	     JButton amount5 = new JButton("OFF");
 	     JPanel panel = new JPanel(new GridBagLayout());
 	 	 GridBagConstraints testing = new GridBagConstraints();
@@ -82,7 +93,7 @@ public class CurrentConditionDisplay extends JFrame implements Observer, Display
 	 				
 	 	 testing.gridx = 6;
 	 	 testing.gridy = 4;
-	 	 panel.add(comments,testing);
+	 	 panel.add(textArea,testing);
 	 	 
 	 	frame2.add(panel);
 		frame2.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -91,5 +102,16 @@ public class CurrentConditionDisplay extends JFrame implements Observer, Display
 		
 		System.out.println("Current Condition:"+temperature+"C degrees and"+"Normal Temperature"+humidity+" C degrees and we need: "+pressure+" to be a normal temperature");
 		System.out.println("Wind Flow:"+currentWind+"MPH and"+" currentTime: "+currentTime+" & window status:  "+setWindow);
+
+		
 	}
+	private String  buildText(){
+			//String Builder sb = new StringBuilder();
+			String a = "Current Condition:"+temperature+"\nC degrees and"+"Normal Temperature"+humidity+"\n C degrees and we need: "+pressure+"\n to be a normal temperature\n"+"\nWind Flow:"+currentWind+"\nMPH and"+"currentTime: "+currentTime;
+			
+			//System.out.println();
+	
+			//System.out.println();
+			return a;
+		}
 }
