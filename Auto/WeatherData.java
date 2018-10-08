@@ -1,4 +1,4 @@
-
+package Auto;
 
 import java.util.ArrayList;
 public class WeatherData implements Subject{
@@ -9,6 +9,7 @@ public class WeatherData implements Subject{
 	private float pressure;
 	private float currentWind;
 	private String setWindow;
+	private String status;
 	private float currentTime;
 
 	public WeatherData(){
@@ -28,7 +29,7 @@ public class WeatherData implements Subject{
 	public void notifyObserver(){
 		for (int i = 0; i < observers.size() ; i++ ) {
 			Observer observer =(Observer)observers.get(i);
-			observer.update(temperature,humidity,pressure,currentWind,currentTime,setWindow);
+			observer.update(temperature,humidity,pressure,currentWind,currentTime,setWindow,status);
 		}
 	}
 
@@ -56,6 +57,10 @@ public class WeatherData implements Subject{
 		return currentTime;
 	}
 	
+	public String getStatus(){
+		return status;
+	}
+	
 	public void measurementsChanged(){
 		//float temp = getTemperature();
 		//float humidity = getHumidity();
@@ -66,18 +71,24 @@ public class WeatherData implements Subject{
 		//forecastDisplays.update(temp,humidity,pressure);
 		notifyObserver();
 	}
-	public void setMeasurements(float temperature, float humidity,float pressure,float currentWind,float currentTime,String setWindow){
+	public void setMeasurements(float temperature, float humidity,float pressure,float currentWind,float currentTime,String setWindow,String status){
 		this.temperature = temperature;
 		this.humidity = humidity;
 		this.currentWind = currentWind;
 		this.currentTime = currentTime;
+		this.status = status;
 		
 		
-		 if(temperature != humidity) {
+		 if(isNotSame(temperature, humidity)) {
 			 this.pressure = humidity - temperature;
-			
+			 if(isHot(humidity)) {
+				this.status = "ON"; 
+			 }else {
+				this.status = "OFF";
+			 }
 		 } else {
 		  this.pressure = pressure;
+		  this.status = "OFF";
 		 }
 		
 		 if(atMorning(currentTime)) {
@@ -92,6 +103,14 @@ public class WeatherData implements Subject{
 		 
 		
 		measurementsChanged();
+	}
+
+	private boolean isNotSame(float temperature, float humidity) {
+		return temperature != humidity;
+	}
+
+	private boolean isHot(float humidity) {
+		return temperature>humidity;
 	}
 
 	private boolean isStrongWind(float currentWind) {
