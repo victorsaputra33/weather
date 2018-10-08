@@ -26,52 +26,6 @@ public class CurrentConditionDisplay extends JFrame implements Observer, Display
 	private Subject weatherData;
 	
 	public CurrentConditionDisplay() {
-     frame2.setTitle("WeatherProgram");
-     JLabel judul = new JLabel("Mode");
-     JLabel judul2 = new JLabel("Blind");
-  	 JLabel judultext = new JLabel("");
-  	 JLabel judultext2 = new JLabel("");
-     JButton amount1 = new JButton("ON");
-     JTextArea comments = new JTextArea("HELLO");
-     JButton amount5 = new JButton("OFF");
-     JPanel panel = new JPanel(new GridBagLayout());
- 	 GridBagConstraints testing = new GridBagConstraints();
- 	
- 	 testing.gridx = 0;
- 	 testing.gridy = 0;
- 	 panel.add(judul,testing);
- 	 
- 	 testing.gridx = 0;
- 	 testing.gridy = 1;
-   	 panel.add(judul2,testing);
-   				
-   	 testing.gridx = 0;
- 	 testing.gridy = 2;
- 	 panel.add(amount1,testing);
- 		  		
- 	 testing.gridx = 6;
-   	 testing.gridy = 0;
- 	 panel.add(judultext,testing);
- 		  		
- 	 testing.gridx = 6;
- 	 testing.gridy = 1;
- 	 panel.add(judultext2,testing);
- 		  		
- 	 testing.gridx = 6;
- 	 testing.gridy = 2;
-  	 panel.add(amount5,testing);
- 				
- 	 testing.gridx = 6;
- 	 testing.gridy = 4;
- 	 panel.add(comments,testing);
- 	 
- 	frame2.add(panel);
-	frame2.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-	frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame2.setVisible(true);
-
-  
-	
 	}
 	
 
@@ -91,6 +45,50 @@ public class CurrentConditionDisplay extends JFrame implements Observer, Display
 
 	}
 	public void display(){
+		frame2.setTitle("WeatherProgram");
+	     JLabel judul = new JLabel("Mode");
+	     JLabel judul2 = new JLabel("Blind");
+	  	 JLabel judultext = new JLabel("");
+	  	 JLabel judultext2 = new JLabel("");
+	     JButton amount1 = new JButton("ON");
+	     JTextArea comments = new JTextArea("HELLO");
+	     JButton amount5 = new JButton("OFF");
+	     JPanel panel = new JPanel(new GridBagLayout());
+	 	 GridBagConstraints testing = new GridBagConstraints();
+	 	
+	 	 testing.gridx = 0;
+	 	 testing.gridy = 0;
+	 	 panel.add(judul,testing);
+	 	 
+	 	 testing.gridx = 0;
+	 	 testing.gridy = 1;
+	   	 panel.add(judul2,testing);
+	   				
+	   	 testing.gridx = 0;
+	 	 testing.gridy = 2;
+	 	 panel.add(amount1,testing);
+	 		  		
+	 	 testing.gridx = 6;
+	   	 testing.gridy = 0;
+	 	 panel.add(judultext,testing);
+	 		  		
+	 	 testing.gridx = 6;
+	 	 testing.gridy = 1;
+	 	 panel.add(judultext2,testing);
+	 		  		
+	 	 testing.gridx = 6;
+	 	 testing.gridy = 2;
+	  	 panel.add(amount5,testing);
+	 				
+	 	 testing.gridx = 6;
+	 	 testing.gridy = 4;
+	 	 panel.add(comments,testing);
+	 	 
+	 	frame2.add(panel);
+		frame2.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame2.setVisible(true);
+		
 		System.out.println("Current Condition:"+temperature+"C degrees and"+"Normal Temperature"+humidity+" C degrees and we need: "+pressure+" to be a normal temperature");
 		System.out.println("Wind Flow:"+currentWind+"MPH and"+" currentTime: "+currentTime+" & window status:  "+setWindow);
 	}
