@@ -70,7 +70,7 @@ JTextField humidityButton = new JTextField(10);
 		 frame2.setTitle("WeatherProgram");
 	     	     JLabel judul = new JLabel("Mode :");
 	     JLabel judul2 = new JLabel("Blind :");
-	     JLabel tempe = new JLabel("Temperature :");
+	     JLabel tempe = new JLabel("Temperature Set :");
 	  	 JLabel judultext = new JLabel("");
 	  	 judultext.setText(status);
 		//JButton amount1 = new JButton("ON");
@@ -88,7 +88,7 @@ JTextField humidityButton = new JTextField(10);
 	     
 	     JTextArea textArea = new JTextArea(50,50);
 	     textArea.setSize(400,400);
-	     //comments.setText("Current Condition:"+temperature+"C degrees and"+"Normal Temperature"+humidity+" C degrees and we need: "+pressure+" to be a normal temperature");
+	     //comments.setText("Current Condition:"+temperature+" C degrees and"+" Normal Temperature"+humidity+" C degrees and we need: "+pressure+" to be a normal temperature");
 	     textArea.setLineWrap(false);
          textArea.setWrapStyleWord(true);
     	 textArea.append("\n");
@@ -154,7 +154,7 @@ JTextField humidityButton = new JTextField(10);
 	}
 	private String  buildText(){
 			//String Builder sb = new StringBuilder();
-			String a = "Current Condition:"+temperature+"\nC degrees and"+"Normal Temperature"+humidity+"\n C degrees and we need: "+pressure+"\n to be a normal temperature\n"+"\nWind Flow:"+currentWind+"\nMPH and"+"currentTime: "+currentTime;
+			String a = "Current Condition: "+temperature+" C degrees"+"\nNormal Temperature: "+humidity+" C degrees"+"\nWe need: "+pressure+" to be a normal temperature"+"\nWind Flow:"+currentWind+" MPH"+"\nCurrentTime: "+currentTime;
 			
 			//System.out.println();
 	

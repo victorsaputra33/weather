@@ -20,7 +20,9 @@ public class Main{
 		float initial = 0;	
 		float normalTemp=22;
 	    
-		while(true) {
+		weatherData.setMeasurements(RandTemp,normalTemp,initial,windFlow,randTime,setWindow,status);
+		
+		/*while(true) {
 			if(isSame(RandTemp, lastRandTemp) || isSame(windFlow, lastWindFlow) || isSame(randTime, lastRandTime)) {
 			 RandTemp = rand.nextInt(30)+1;
 			 windFlow = rand.nextInt(20)+1;
@@ -30,7 +32,7 @@ public class Main{
 			lastRandTemp = RandTemp;
 			lastRandTime = randTime;
 			lastWindFlow = windFlow;
-		}
+		}*/
 		
 	}
 
